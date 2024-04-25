@@ -14,7 +14,7 @@
     <parent>
         <groupId>ca.uhn.hapi.fhir</groupId>
         <artifactId>hapi-fhir</artifactId>
-        <version>7.0.2</version>
+        <version>7.3.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>hapi-fhir-jpaserver-starter</artifactId>
@@ -22,6 +22,7 @@
 
     <properties>
         <java.version>11</java.version>
+        <spring_boot_version>3.2.1</spring_boot_version>
     </properties>
 
     <prerequisites>
@@ -79,6 +80,17 @@
             <artifactId>hapi-fhir-base</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!--Custom LoggingInterceptor used to look at requests coming in -->
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-server</artifactId>
+            <version>7.3.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/hapi-fhir-server-7.3.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+
         <!-- This dependency includes the EmailSenderImpl we will be using instead of standard javamail.-->
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
@@ -108,6 +120,17 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.hibernate.search/hibernate-search-engine -->
+        <dependency>
+            <groupId>org.hibernate.search</groupId>
+            <artifactId>hibernate-search-engine</artifactId>
+            <version>7.1.0.Final</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+
+
         <!-- This dependency includes the JPA CQL Server -->
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
