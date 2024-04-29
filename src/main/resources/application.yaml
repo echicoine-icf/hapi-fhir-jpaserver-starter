@@ -210,7 +210,7 @@ hapi:
         fhir_version: R4
       global:
         name: Global Tester
-        server_address: "http://hapi.fhir.org/baseR4"
+        server_address: "https://fhir.ecqm.icfcloud.com/fhir"
         refuse_to_fetch_third_party_urls: false
         fhir_version: R4
     #    validation:
