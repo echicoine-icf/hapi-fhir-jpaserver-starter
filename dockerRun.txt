@@ -1,0 +1,7 @@
+docker build -t echicoineicf/hapi-fhir-jpaserver-starter:logging_interceptor .
+
+docker push echicoineicf/hapi-fhir-jpaserver-starter:logging_interceptor
+
+docker pull echicoineicf/hapi-fhir-jpaserver-starter:logging_interceptor
+
+docker run -p 8080:8080 echicoineicf/hapi-fhir-jpaserver-starter:logging_interceptor

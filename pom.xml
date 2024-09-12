@@ -52,6 +52,17 @@
     </dependencyManagement>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.googlecode.owasp-java-html-sanitizer/owasp-java-html-sanitizer -->
+        <dependency>
+            <groupId>com.googlecode.owasp-java-html-sanitizer</groupId>
+            <artifactId>owasp-java-html-sanitizer</artifactId>
+            <version>20240325.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -74,13 +85,6 @@
             </exclusions>
         </dependency>
 
-        <!-- This dependency includes the core HAPI-FHIR classes -->
-        <dependency>
-            <groupId>ca.uhn.hapi.fhir</groupId>
-            <artifactId>hapi-fhir-base</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
         <!--Custom LoggingInterceptor used to look at requests coming in -->
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
@@ -90,6 +94,13 @@
             <systemPath>${project.basedir}/src/main/resources/hapi-fhir-server-7.3.0-SNAPSHOT.jar</systemPath>
         </dependency>
 
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-base</artifactId>
+            <version>7.3.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/hapi-fhir-base-7.3.0-SNAPSHOT.jar</systemPath>
+        </dependency>
 
         <!-- This dependency includes the EmailSenderImpl we will be using instead of standard javamail.-->
         <dependency>

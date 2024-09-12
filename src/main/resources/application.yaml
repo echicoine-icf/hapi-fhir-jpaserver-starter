@@ -29,6 +29,13 @@ spring:
     # database connection pool size
     hikari:
       maximum-pool-size: 10
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+    tcpServer:
+      enabled: true
   jpa:
     properties:
       hibernate.format_sql: false
@@ -205,7 +212,7 @@ hapi:
     tester:
       home:
         name: Local Tester
-        server_address: 'http://localhost:8080/fhir'
+        server_address: 'https://fhir.ecqm.icfcloud.com/fhir'
         refuse_to_fetch_third_party_urls: false
         fhir_version: R4
       global:
