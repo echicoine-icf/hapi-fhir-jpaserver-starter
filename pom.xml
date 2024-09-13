@@ -82,6 +82,16 @@
             </exclusions>
         </dependency>
 
+        <!--Custom LoggingInterceptor used to look at requests coming in -->
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-server</artifactId>
+            <version>7.5.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/hapi-fhir-server-7.5.0-SNAPSHOT.jar</systemPath>
+        </dependency>
+
+
         <!-- This dependency includes the core HAPI-FHIR classes -->
         <dependency>
             <groupId>ca.uhn.hapi.fhir</groupId>
