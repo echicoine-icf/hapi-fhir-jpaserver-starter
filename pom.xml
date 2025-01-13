@@ -14,7 +14,7 @@
     <parent>
         <groupId>ca.uhn.hapi.fhir</groupId>
         <artifactId>hapi-fhir</artifactId>
-        <version>7.6.0</version>
+        <version>7.6.1</version>
     </parent>
 
     <artifactId>hapi-fhir-jpaserver-starter</artifactId>
@@ -22,6 +22,15 @@
 
     <properties>
         <java.version>17</java.version>
+
+        <!-- Clinical Reasoning & CQL Support -->
+        <clinical-reasoning.version>3.16.0</clinical-reasoning.version>
+        <!-- TODO: LD: this a TEMPORARY HACK to get around the fact that CR 3.15.0 is missing a pom file -->
+        <!-- This needs to be removed next time we do a CR bump -->
+        <!-- See: https://github.com/hapifhir/hapi-fhir/issues/6567 -->
+        <!-- Direct CQL dependencies -->
+        <cql.version>3.19.1</cql.version>
+
     </properties>
 
     <prerequisites>
@@ -40,15 +49,16 @@
         </repository>
     </repositories>
 
+
     <dependencyManagement>
-       <dependencies>
+        <dependencies>
 
             <dependency>
-               <groupId>org.glassfish.jaxb</groupId>
-               <artifactId>jaxb-runtime</artifactId>
-               <version>2.3.8</version>
-           </dependency>
-       </dependencies>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>2.3.8</version>
+            </dependency>
+        </dependencies>
     </dependencyManagement>
 
     <dependencies>
@@ -58,8 +68,8 @@
             <artifactId>postgresql</artifactId>
         </dependency>
         <dependency>
-          <groupId>com.microsoft.sqlserver</groupId>
-          <artifactId>mssql-jdbc</artifactId>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
         </dependency>
 
         <!-- Needed for Email subscriptions -->
@@ -127,9 +137,9 @@
         </dependency>
         <!-- This dependency includes the CDS Hooks Server -->
         <dependency>
-          <groupId>ca.uhn.hapi.fhir</groupId>
-          <artifactId>hapi-fhir-server-cds-hooks</artifactId>
-          <version>${project.parent.version}</version>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-server-cds-hooks</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         <!-- This dependency includes the OpenAPI Server -->
         <dependency>
@@ -709,6 +719,6 @@
                     <version>1.17.0</version>
                 </dependency>
             </dependencies>
-        </profile>       
+        </profile>
     </profiles>
 </project>
